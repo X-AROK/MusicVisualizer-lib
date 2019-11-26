@@ -41,6 +41,7 @@ public class Sound{
             return 0;
         }
     }
+
     private int getFramesCount(){
         try {
             float[] samples = new float[1024];
@@ -60,7 +61,7 @@ public class Sound{
         }
     }
 
-    public void generateMP4(File out, Visualizer visualizer){
+    public void generateMP4(File out, Visualizer visualizer, ProgressListener listener){
         if(!out.getPath().endsWith(".mp4")){
             System.err.println("E\\Sound: Invalid out file format.");
             return;
@@ -77,18 +78,23 @@ public class Sound{
 
                 float[] samples = new float[1024];
                 int currentFrame = 0;
-                int iSavedFrame = 0;
+                int iEncodedFrame = 0;
                 while (decoder.readSamples(samples) > 0) {
                     currentFrame++;
                     if(currentFrame % 2 == 1) continue; //Encoding every 2nd frame; 43 fps is too fast
+
                     visualizer.setSamples(samples);
+
                     BufferedImage image = visualizer.getImage();
                     Picture pic = Picture.create(image.getWidth(), image.getHeight(), ColorSpace.RGB);
                     AWTUtil.fromBufferedImage(image, pic);
+
                     enc.encodeNativeFrame(pic);
-                    System.out.println(++iSavedFrame + "/" + framesCount); //TODO: onChangeProgress, onComplete events
+
+                    if(listener != null) listener.onProgressChange(++iEncodedFrame, framesCount);
                 }
                 enc.finish();
+                if(listener != null) listener.onComplete();
             }
         }
         catch (Exception ex){

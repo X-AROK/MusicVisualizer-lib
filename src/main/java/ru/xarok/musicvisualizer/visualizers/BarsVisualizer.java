@@ -33,7 +33,7 @@ public class BarsVisualizer extends Visualizer {
         for(int i = 0; i < barsCount; i++) {
             int samplePos = (int)Math.ceil((double)i/barsCount * samples.length);
             float x = (barWidth + gap) * i;
-            float y = height - Math.abs(samples[samplePos]) * height/2;
+            float y = height - Math.abs(samples[samplePos]) * height;
 
             rect2D.setRect(x, y, barWidth, y);
             g2.fill(rect2D);
