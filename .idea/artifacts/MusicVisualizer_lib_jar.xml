@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MusicVisualizer-lib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MusicVisualizer_lib_jar</output-path>
+    <root id="archive" name="MusicVisualizer-lib.jar">
+      <element id="module-output" name="MusicVisualizer-lib" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/mp3spi1.9.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jl1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jcodec-javase-0.2.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jcodec-0.2.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jave-1.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/tritonus_share.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
