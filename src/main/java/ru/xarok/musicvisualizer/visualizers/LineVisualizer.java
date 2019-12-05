@@ -19,8 +19,7 @@ public class LineVisualizer extends Visualizer {
     }
 
     @Override
-    protected void paint(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
+    protected void paint(Graphics2D g2) {
         super.paint(g2); //Clear canvas
 
         float[] samples = getSamples();

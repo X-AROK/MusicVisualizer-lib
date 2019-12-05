@@ -26,11 +26,11 @@ public class Visualizer {
         this.height = height;
     }
 
-    protected void paint(Graphics g){
+    protected void paint(Graphics2D g){
         g.clearRect(0, 0, getWidth(), getHeight());
     }
 
-    public BufferedImage getImage() {
+    protected BufferedImage getImage() {
         BufferedImage image = new BufferedImage(this.getWidth(), this.getHeight(),BufferedImage.TYPE_INT_RGB);
 
         Graphics2D g2=(Graphics2D)image.getGraphics();
